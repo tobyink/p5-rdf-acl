@@ -1,0 +1,34 @@
+---
+abstract: 'access control lists for the semantic web'
+author:
+  - 'Toby Inkster <tobyink@cpan.org>'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+  Test::More: 0.61
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 0.91'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: RDF-ACL
+no_index:
+  directory:
+    - inc
+    - t
+requires:
+  Carp: 1.00
+  Data::UUID: 0
+  Error: 0
+  RDF::Trine::Shortcuts: 0.02
+  URI: 1.30
+  XML::LibXML: 1.60
+  perl: 5.8.0
+resources:
+  bugtracker: http://rt.cpan.org/Dist/Display.html?Queue=RDF-ACL
+  homepage: http://search.cpan.org/dist/RDF-ACL/
+  license: http://dev.perl.org/licenses/
+  repository: http://goddamn.co.uk/viewvc/perlmods/RDF-ACL/
+version: 0.01

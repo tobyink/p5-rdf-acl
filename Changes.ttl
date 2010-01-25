@@ -1,0 +1,60 @@
+#############################################################
+
+@prefix :        <http://usefulinc.com/ns/doap#> .
+@prefix dcs:     <http://ontologi.es/doap-changeset#> .
+@prefix dc:      <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix my:      <http://search.cpan.org/dist/RDF-ACL/#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix toby:    <http://tobyinkster.co.uk/#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+#############################################################
+
+<>
+
+	dc:title         "Changes" ;
+	dc:description   "Revision history for Perl extension RDF::ACL."@en ;
+	dc:subject       my:project ;
+	dc:creator       toby:i .
+
+#############################################################
+
+my:v_0_01
+
+	a               :Version ;
+	dc:issued       "2010-01-20"^^xsd:date ;
+	:revision       "0.01"^^xsd:string ;
+	:file-release   <http://backpan.perl.org/authors/id/T/TO/TOBYINK/RDF-ACL-0.01.tar.gz> ;
+	rdfs:comment    "Original version"@en .
+
+#############################################################
+
+my:project
+
+	a               :Project ;
+	:name           "RDF-ACL" ;
+	:shortdesc      "access control lists for the semantic web"@en ;
+	:programming-language  "Perl" ;
+	:homepage       <http://search.cpan.org/dist/RDF-ACL/> ;
+	:download-page  <http://search.cpan.org/dist/RDF-ACL/> ;
+	:bug-database   <http://rt.cpan.org/Dist/Display.html?Queue=RDF-ACL> ;
+	:repository     [ a :SVNRepository ; :browse <http://goddamn.co.uk/viewvc/perlmods/RDF-ACL/> ] ;
+	:maintainer     toby:i ;
+	:developer      toby:i ;
+	:documenter     toby:i ;
+	:tester         toby:i ;
+	:created        "2010-01-20"^^xsd:date ;
+	:license        <http://dev.perl.org/licenses/> ;
+	:release        my:v_0_01 .
+
+#############################################################
+
+toby:i
+
+	a               foaf:Person ;
+	foaf:name       "Toby Inkster" ;
+	foaf:homepage   <http://tobyinkster.co.uk/> ;
+	foaf:page       <http://search.cpan.org/~tobyink/> .
+
+#############################################################
