@@ -1,10 +1,10 @@
-use Test::More tests => 3;
+use Test::More tests => 7;
 BEGIN { use_ok('RDF::ACL') };
 use Error qw(:try);
 
 my $acl = RDF::ACL->new;
 
-$acl->allow(
+my $id = $acl->allow(
 	'webid'     => ['http://example.com/joe#me'],
 	'item'      => 'http://example.com/private/document',
 	'level'     => ['read']
@@ -15,7 +15,6 @@ $acl->i_am('http://example.com/joe#me');
 is($acl->who_am_i, 'http://example.com/joe#me',
 	"who_am_i works");
 
-# This is supposed to fail!
 try
 {
 	$acl->allow(
@@ -27,15 +26,35 @@ try
 catch Error::Simple with
 {
 	my $e = shift;
-	ok($e, "$e");
+	ok($e, "This is supposed to fail:- $e");
+};
+
+try
+{
+	$acl->deny($id);
 }
+catch Error::Simple with
+{
+	my $e = shift;
+	ok($e, "This is also supposed to fail:- $e");
+};
 
 $acl->i_am(undef);
 
-# This is not supposed to fail!
 ok($acl->allow(
 		'webid'     => ['http://example.com/joe#me'],
 		'item'      => 'http://example.com/private/document',
 		'level'     => ['control']
 		),
-	"");
+	"Assigning control access to joe.");
+
+$acl->i_am('http://example.com/joe#me');
+
+ok($acl->allow(
+		'webid'     => ['http://example.com/joe#me'],
+		'item'      => 'http://example.com/private/document',
+		'level'     => ['write']
+		),
+	"Now it works!");
+
+ok($acl->deny($id), "This works too!");
