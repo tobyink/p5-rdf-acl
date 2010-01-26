@@ -15,6 +15,7 @@ t/01basic.t
 t/02access.t
 t/03classes.t
 t/04containers.t
+t/05whoami.t
 
 inc/Module/AutoInstall.pm
 inc/Module/Install/AutoInstall.pm

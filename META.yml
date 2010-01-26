@@ -19,10 +19,9 @@ no_index:
     - inc
     - t
 requires:
-  Carp: 1.00
   Data::UUID: 0
   Error: 0
-  RDF::Trine::Shortcuts: 0.02
+  RDF::TrineShortcuts: 0.03
   URI: 1.30
   XML::LibXML: 1.60
   perl: 5.8.0

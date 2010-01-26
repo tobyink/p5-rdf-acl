@@ -16,12 +16,11 @@ license             'perl';
 
 test_requires       'Test::More' => '0.61';
 
-requires            'Carp'               => '1.00';
-requires            'Data::UUID'         => 0;
-requires            'Error'              => 0;
-requires            'RDF::Trine::Shortcuts' => '0.02';
-requires            'XML::LibXML'        => '1.60';
-requires            'URI'                => '1.30';
+requires            'Data::UUID'          => 0;
+requires            'Error'               => 0;
+requires            'RDF::TrineShortcuts' => '0.03';
+requires            'XML::LibXML'         => '1.60';
+requires            'URI'                 => '1.30';
 
 resources(
 	'homepage'   => "http://search.cpan.org/dist/$dist/",
