@@ -12,7 +12,7 @@ my $authid = $acl->allow(
 my $authid2 = $acl->allow(
 	'agent'       => ['http://example.com/fembot#me'],
 	'item_class'  => 'http://xmlns.com/foaf/0.1/PersonalProfileDocument',
-	'level'       => ['write', 'read']
+	'level'       => ['append', 'read']
 	);
 
 my $proper = <<CANON;
@@ -24,8 +24,8 @@ my $proper = <<CANON;
 <$authid2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/auth/acl#Authorization> .
 <$authid2> <http://www.w3.org/ns/auth/acl#accessToClass> <http://xmlns.com/foaf/0.1/PersonalProfileDocument> .
 <$authid2> <http://www.w3.org/ns/auth/acl#agent> <http://example.com/fembot#me> .
+<$authid2> <http://www.w3.org/ns/auth/acl#mode> <http://www.w3.org/ns/auth/acl#Append> .
 <$authid2> <http://www.w3.org/ns/auth/acl#mode> <http://www.w3.org/ns/auth/acl#Read> .
-<$authid2> <http://www.w3.org/ns/auth/acl#mode> <http://www.w3.org/ns/auth/acl#Write> .
 CANON
 $proper =~ s/\r?\n/\r\n/g;
 
@@ -69,7 +69,7 @@ is(2, scalar @reasons, "first explanation works ok");
 my @reasons2 = $acl->why(
 	'http://example.com/fembot#me',
 	'http://example.com/private/document',
-	'write',
+	'append',
 	$agent_info,
 	$document_info);
 is(1, scalar @reasons2, "second explanation works ok");
@@ -79,10 +79,10 @@ $acl->deny($authid2);
 ok(!$acl->check(
 		'http://example.com/fembot#me',
 		'http://example.com/private/document',
-		'write',
+		'APPEND',
 		$agent_info,
 		$document_info),
-	"removed write authorisation"
+	"removed append authorisation"
 	);
 
 ok($acl->check(

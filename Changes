@@ -2,13 +2,17 @@
 ## Changes #################################################################
 ############################################################################
 
-<http://search.cpan.org/dist/RDF-ACL/#project>
-==============================================
+RDF-ACL
+=======
 
 Created:      2010-01-20
 Home page:    <http://search.cpan.org/dist/RDF-ACL/>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=RDF-ACL>
 Maintainer:   Toby Inkster
+
+0.100 [2010-06-20]
+ - (Update) Support recent addition to ACL vocabulary - acl:Append.
+ - use Scalar::Util.
 
 0.01 [2010-01-20]
 

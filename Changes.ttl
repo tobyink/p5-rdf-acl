@@ -4,7 +4,7 @@
 @prefix dcs:     <http://ontologi.es/doap-changeset#> .
 @prefix dc:      <http://purl.org/dc/terms/> .
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
-@prefix my:      <http://search.cpan.org/dist/RDF-ACL/#> .
+@prefix my:      <http://purl.org/NET/cpan-uri/dist/RDF-ACL/> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix toby:    <http://tobyinkster.co.uk/#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
@@ -20,13 +20,25 @@
 
 #############################################################
 
-my:v_0_01
+my:v_0-01
 
 	a               :Version ;
 	dc:issued       "2010-01-20"^^xsd:date ;
 	:revision       "0.01"^^xsd:string ;
 	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/RDF-ACL-0.01.tar.gz> ;
 	rdfs:comment    "Original version"@en .
+
+my:v_0-100
+
+	a               :Version ;
+	dc:issued       "2010-06-20"^^xsd:date ;
+	:revision       "0.100"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/RDF-ACL-0.100.tar.gz> ;
+	dcs:changeset [
+		dcs:versus my:v_0-01 ;
+		dcs:item [ rdfs:label "Support recent addition to ACL vocabulary - acl:Append."@en ; a dcs:Update ] ;
+		dcs:item [ rdfs:label "use Scalar::Util."@en ] ;
+		] .
 
 #############################################################
 
@@ -46,7 +58,7 @@ my:project
 	:tester         toby:i ;
 	:created        "2010-01-20"^^xsd:date ;
 	:license        <http://dev.perl.org/licenses/> ;
-	:release        my:v_0_01 .
+	:release        my:v_0-01 , my:v_0-100 .
 
 #############################################################
 

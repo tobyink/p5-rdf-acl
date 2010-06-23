@@ -48,6 +48,7 @@ use Carp;
 use Data::UUID;
 use Error qw(:try);
 use RDF::TrineShortcuts 0.03;
+use Scalar::Util qw(blessed);
 use URI;
 
 use constant NS_ACL   => 'http://www.w3.org/ns/auth/acl#';
@@ -55,11 +56,11 @@ use constant NS_RDF   => 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
 
 =head1 VERSION
 
-0.01
+0.100
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.100';
 
 =head1 DESCRIPTION
 
@@ -86,7 +87,7 @@ sub new
 	my $class = shift;
 	
 	my $model = shift;
-	unless (UNIVERSAL::isa($model, 'RDF::Trine::Model'))
+	unless (blessed($model) && $model->isa('RDF::Trine::Model'))
 	{
 		$model = rdf_parse($model, @_);
 	}
@@ -135,7 +136,8 @@ $item is the URL (URI) of the item being accessed.
 $level is a URI identifying the type of access required. As special
 cases, the case-insensitive string 'read' is expanded to the URI
 E<lt>http://www.w3.org/ns/auth/acl#ReadE<gt>, 'write' to
-E<lt>http://www.w3.org/ns/auth/acl#WriteE<gt> and 'control' to
+E<lt>http://www.w3.org/ns/auth/acl#WriteE<gt>, 'append' to
+E<lt>http://www.w3.org/ns/auth/acl#AppendE<gt> and 'control' to
 E<lt>http://www.w3.org/ns/auth/acl#ControlE<gt>.
 
 If the access control list is local (not remote), zero or more
@@ -173,7 +175,7 @@ sub check
 	
 	if (defined $level)
 	{
-		if ($level =~ /^(access|read|write|control)$/i)
+		if ($level =~ /^(access|read|write|control|append)$/i)
 		{
 			$level = $aclvocab . (ucfirst lc $level);
 		}
@@ -227,7 +229,7 @@ SPARQL
 		while (my $result = $iterator->next)
 		{
 			push @rv, $result->{'level'}->uri
-				if UNIVERSAL::can($result->{'level'}, 'uri');
+				if blessed($result->{'level'}) && $result->{'level'}->can('uri');
 		}
 		return @rv;
 	}
@@ -270,7 +272,7 @@ sub why
 	
 	my $aclvocab = NS_ACL;
 	
-	if ($level =~ /^(access|read|write|control)$/i)
+	if ($level =~ /^(access|read|write|control|append)$/i)
 	{
 		$level = $aclvocab . (ucfirst lc $level);
 	}
@@ -299,7 +301,7 @@ SPARQL
 	my @rv;
 	while (my $result = $iterator->next)
 	{
-		if (UNIVERSAL::can($result->{'authorisation'}, 'uri'))
+		if (blessed($result->{'authorisation'}) && $result->{'authorisation'}->can('uri'))
 		{
 			push @rv, $result->{'authorisation'}->uri;
 		}
@@ -414,7 +416,7 @@ sub allow
 					unless $control;
 			}
 
-			if ($p eq 'level' and $val =~ /^(access|read|write|control)$/i)
+			if ($p eq 'level' and $val =~ /^(access|read|write|control|append)$/i)
 			{
 				$val = NS_ACL . (ucfirst lc $val);
 			}

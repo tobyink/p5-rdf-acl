@@ -36,7 +36,7 @@ SYNOPSIS
       $acl->save('turtle', 'access.ttl');
 
 VERSION
-    0.01
+    0.100
 
 DESCRIPTION
     Note that this module provides access control and does not perform
@@ -68,7 +68,8 @@ DESCRIPTION
         $level is a URI identifying the type of access required. As special
         cases, the case-insensitive string 'read' is expanded to the URI
         <http://www.w3.org/ns/auth/acl#Read>, 'write' to
-        <http://www.w3.org/ns/auth/acl#Write> and 'control' to
+        <http://www.w3.org/ns/auth/acl#Write>, 'append' to
+        <http://www.w3.org/ns/auth/acl#Append> and 'control' to
         <http://www.w3.org/ns/auth/acl#Control>.
 
         If the access control list is local (not remote), zero or more
