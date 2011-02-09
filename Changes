@@ -10,9 +10,13 @@ Home page:    <http://search.cpan.org/dist/RDF-ACL/>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=RDF-ACL>
 Maintainer:   Toby Inkster
 
+0.101 [2011-02-09] # We're not dead yet!
+ - Minor cleanups.
+ - (Update) Copyright 2011.
+
 0.100 [2010-06-20]
- - (Update) Support recent addition to ACL vocabulary - acl:Append.
  - use Scalar::Util.
+ - (Update) Support recent addition to ACL vocabulary - acl:Append.
 
 0.01 [2010-01-20]
 

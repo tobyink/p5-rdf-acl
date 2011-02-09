@@ -40,6 +40,19 @@ my:v_0-100
 		dcs:item [ rdfs:label "use Scalar::Util."@en ] ;
 		] .
 
+my:v_0-101
+
+	a               :Version ;
+	dc:issued       "2011-02-09"^^xsd:date ;
+	:revision       "0.101"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/RDF-ACL-0.101.tar.gz> ;
+	rdfs:label      "We're not dead yet!"@en ;
+	dcs:changeset [
+		dcs:versus my:v_0-100 ;
+		dcs:item [ rdfs:label "Copyright 2011."@en ; a dcs:Update, dcs:Documentation ] ;
+		dcs:item [ rdfs:label "Minor cleanups."@en ]
+		] .
+
 #############################################################
 
 my:project
@@ -58,7 +71,7 @@ my:project
 	:tester         toby:i ;
 	:created        "2010-01-20"^^xsd:date ;
 	:license        <http://dev.perl.org/licenses/> ;
-	:release        my:v_0-01 , my:v_0-100 .
+	:release        my:v_0-01 , my:v_0-100 , my:v_0-101 .
 
 #############################################################
 

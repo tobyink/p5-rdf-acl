@@ -35,9 +35,6 @@ SYNOPSIS
       }
       $acl->save('turtle', 'access.ttl');
 
-VERSION
-    0.100
-
 DESCRIPTION
     Note that this module provides access control and does not perform
     authentication!
@@ -135,8 +132,9 @@ DESCRIPTION
         'webid'.)
 
         'level' is the access level being granted. As with the "check"
-        method, the shortcuts 'read', 'write' and 'control' may be used. An
-        arrayref may be used. If no level is specified, 'read' is assumed.
+        method, the shortcuts 'read', 'write', 'append' and 'control' may be
+        used. An arrayref may be used. If no level is specified, 'read' is
+        assumed.
 
         This authorisation is not automatically saved, so it is probably
         useful to call "save()" after adding authorisations.
@@ -229,7 +227,7 @@ AUTHOR
     Toby Inkster <tobyink@cpan.org>.
 
 COPYRIGHT
-    Copyright 2010 Toby Inkster
+    Copyright 2010-2011 Toby Inkster
 
     This library is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.

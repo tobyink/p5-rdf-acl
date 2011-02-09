@@ -54,13 +54,7 @@ use URI;
 use constant NS_ACL   => 'http://www.w3.org/ns/auth/acl#';
 use constant NS_RDF   => 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
 
-=head1 VERSION
-
-0.100
-
-=cut
-
-our $VERSION = '0.100';
+our $VERSION = '0.101';
 
 =head1 DESCRIPTION
 
@@ -158,10 +152,7 @@ authorised.
 
 sub check
 {
-	my $self  = shift;
-	my $webid = shift;
-	my $item  = shift;
-	my $level = shift;
+	my ($self, $webid, $item, $level, @datas)  = @_;
 
 	throw Error::Simple("Must provide WebID to be checked.")
 		unless defined $webid;
@@ -169,7 +160,7 @@ sub check
 	throw Error::Simple("Must provide item URI to be checked.")
 		unless defined $item;
 
-	my $model = $self->_union_model(@_);
+	my $model = $self->_union_model(@datas);
 	
 	my $aclvocab = NS_ACL;
 	
@@ -254,10 +245,7 @@ undef.
 
 sub why
 {
-	my $self  = shift;
-	my $webid = shift;
-	my $item  = shift;
-	my $level = shift;
+	my ($self, $webid, $item, $level, @datas)  = @_;
 
 	throw Error::Simple("Must provide WebID to be checked.")
 		unless defined $webid;
@@ -268,7 +256,7 @@ sub why
 	throw Error::Simple("Must provide item URI to be checked.")
 		unless defined $item;
 
-	my $model = $self->_union_model(@_);
+	my $model = $self->_union_model(@datas);
 	
 	my $aclvocab = NS_ACL;
 	
@@ -348,7 +336,7 @@ may authorise access by more than one agent. (For consistency with 'item',
 'agent' is supported as a synonym for 'webid'.)
 
 'level' is the access level being granted. As with the C<< check >>
-method, the shortcuts 'read', 'write' and 'control' may be used.
+method, the shortcuts 'read', 'write', 'append' and 'control' may be used.
 An arrayref may be used. If no level is specified, 'read' is assumed.
 
 This authorisation is not automatically saved, so it is probably useful
@@ -363,8 +351,7 @@ This method is aware of C<< i_am() >>/C<< who_am_i() >>.
 
 sub allow
 {
-	my $self = shift;
-	my %args = @_;
+	my ($self, %args)  = @_;
 	
 	throw Error::Simple("This ACL is not mutable.")
 		unless $self->is_mutable;
@@ -454,8 +441,7 @@ This method is aware of C<< i_am() >>/C<< who_am_i() >>.
 
 sub deny
 {
-	my $self = shift;
-	my $id   = shift;
+	my ($self, $id) = @_;
 	
 	throw Error::Simple("This ACL is not mutable.")
 		unless $self->is_mutable;
@@ -499,9 +485,7 @@ Returns a list of authorisation identifiers.
 
 sub created
 {
-	my $self      = shift;
-	my $item      = shift;
-	my $container = shift;
+	my ($self, $item, $container) = @_;
 	
 	throw Error::Simple("This ACL is not mutable.")
 		unless $self->is_mutable;
@@ -564,7 +548,7 @@ Returns the WebID of the agent that ACL is acting like (if any).
 
 sub who_am_i
 {
-	my $self = shift;
+	my ($self) = @_;
 	return $self->{'i_am'};
 }
 
@@ -585,14 +569,13 @@ to a file, and simply returns the string it would have written.
 
 sub save
 {
-	my $self = shift;
-	my $fmt  = shift || 'RDFXML';
-	my $file = shift;
+	my ($self, $fmt, $file) = @_;
+	$fmt ||= 'RDFXML';
 	
-	throw Error::Simple("This ACL is not mutable.")
-		unless $self->is_mutable;
+	throw Error::Simple("This ACL is not serialisable.")
+		if $self->is_remote;
 
-	my $str = rdf_string($self->model, $fmt);
+	my $str = rdf_string($self->model => $fmt);
 	
 	if (defined $file)
 	{
@@ -613,7 +596,7 @@ Returns true if the ACL is remote; false if local.
 
 sub is_remote
 {
-	my $self = shift;
+	my ($self) = @_;
 	return defined $self->endpoint;
 }
 
@@ -625,7 +608,7 @@ Can this ACL be modified?
 
 sub is_mutable
 {
-	my $self = shift;
+	my ($self) = @_;
 	return defined $self->model;
 }
 
@@ -639,7 +622,7 @@ Returned as an L<RDF::Trine::Model> object.
 
 sub model
 {
-	my $self = shift;
+	my ($self) = @_;
 	return $self->{'model'};
 }
 
@@ -653,7 +636,7 @@ Returned as a L<URI> object.
 
 sub endpoint
 {
-	my $self = shift;
+	my ($self) = @_;
 	return undef unless defined $self->{'endpoint'};
 	return URI->new(''.$self->{'endpoint'});
 }
@@ -666,7 +649,7 @@ sub endpoint
 
 sub _uuid
 {
-	my $self = shift;
+	my ($self) = @_;
 	
 	$self->{'uuid_generator'} = Data::UUID->new
 		unless defined $self->{'uuid_generator'};
@@ -681,7 +664,7 @@ sub _uuid
 
 sub _union_model
 {
-	my $self = shift;
+	my ($self, @graphs) = @_;
 	my $model;
 	
 	if ($self->is_remote)
@@ -689,12 +672,12 @@ sub _union_model
 		$model = $self->endpoint;
 		
 		throw Error::Simple("Cannot provide additional data to consider for remote ACL.")
-			if @_;
+			if @graphs;
 	}
-	elsif (@_)
+	elsif (@graphs)
 	{
 		$model = rdf_parse($self->model);
-		foreach my $given (@_)
+		foreach my $given (@graphs)
 		{
 			rdf_parse($given, model=>$model);
 		}
@@ -708,6 +691,7 @@ sub _union_model
 }
 
 1;
+
 __END__
 
 =back
@@ -730,7 +714,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT
 
-Copyright 2010 Toby Inkster
+Copyright 2010-2011 Toby Inkster
 
 This library is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

@@ -1,70 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF
-   xmlns:dc="http://purl.org/dc/terms/"
-   xmlns:dcs="http://ontologi.es/doap-changeset#"
-   xmlns:foaf="http://xmlns.com/foaf/0.1/"
-   xmlns:my="http://purl.org/NET/cpan-uri/dist/RDF-ACL/"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-   xmlns:toby="http://tobyinkster.co.uk/#"
-   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-   xmlns="http://usefulinc.com/ns/doap#">
-  <rdf:Description rdf:about="file:///home/tai/src/perlmods/RDF-ACL/Changes.ttl">
-    <dc:creator rdf:resource="http://tobyinkster.co.uk/#i"/>
-    <dc:description xml:lang="en">Revision history for Perl extension RDF::ACL.</dc:description>
-    <dc:subject rdf:resource="http://purl.org/NET/cpan-uri/dist/RDF-ACL/project"/>
-    <dc:title>Changes</dc:title>
-  </rdf:Description>
-  <Version rdf:about="http://purl.org/NET/cpan-uri/dist/RDF-ACL/v_0-01">
-    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-20</dc:issued>
-    <file-release rdf:resource="http://backpan.cpan.org/authors/id/T/TO/TOBYINK/RDF-ACL-0.01.tar.gz"/>
-    <revision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.01</revision>
-    <rdfs:comment xml:lang="en">Original version</rdfs:comment>
-  </Version>
-  <Version rdf:about="http://purl.org/NET/cpan-uri/dist/RDF-ACL/v_0-100">
-    <dcs:changeset>
-      <rdf:Description>
-        <dcs:item>
-          <dcs:Update>
-            <rdfs:label xml:lang="en">Support recent addition to ACL vocabulary - acl:Append.</rdfs:label>
-          </dcs:Update>
-        </dcs:item>
-        <dcs:item>
-          <rdf:Description>
-            <rdfs:label xml:lang="en">use Scalar::Util.</rdfs:label>
-          </rdf:Description>
-        </dcs:item>
-        <dcs:versus rdf:resource="http://purl.org/NET/cpan-uri/dist/RDF-ACL/v_0-01"/>
-      </rdf:Description>
-    </dcs:changeset>
-    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-06-20</dc:issued>
-    <file-release rdf:resource="http://backpan.cpan.org/authors/id/T/TO/TOBYINK/RDF-ACL-0.100.tar.gz"/>
-    <revision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.100</revision>
-  </Version>
-  <Project rdf:about="http://purl.org/NET/cpan-uri/dist/RDF-ACL/project">
-    <bug-database rdf:resource="http://rt.cpan.org/Dist/Display.html?Queue=RDF-ACL"/>
-    <created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-20</created>
-    <developer rdf:resource="http://tobyinkster.co.uk/#i"/>
-    <documenter rdf:resource="http://tobyinkster.co.uk/#i"/>
-    <download-page rdf:resource="http://search.cpan.org/dist/RDF-ACL/"/>
-    <homepage rdf:resource="http://search.cpan.org/dist/RDF-ACL/"/>
-    <license rdf:resource="http://dev.perl.org/licenses/"/>
-    <maintainer rdf:resource="http://tobyinkster.co.uk/#i"/>
-    <name>RDF-ACL</name>
-    <programming-language>Perl</programming-language>
-    <release rdf:resource="http://purl.org/NET/cpan-uri/dist/RDF-ACL/v_0-01"/>
-    <release rdf:resource="http://purl.org/NET/cpan-uri/dist/RDF-ACL/v_0-100"/>
-    <repository>
-      <SVNRepository>
-        <browse rdf:resource="http://goddamn.co.uk/viewvc/perlmods/RDF-ACL/"/>
-      </SVNRepository>
-    </repository>
-    <shortdesc xml:lang="en">access control lists for the semantic web</shortdesc>
-    <tester rdf:resource="http://tobyinkster.co.uk/#i"/>
-  </Project>
-  <foaf:Person rdf:about="http://tobyinkster.co.uk/#i">
-    <foaf:homepage rdf:resource="http://tobyinkster.co.uk/"/>
-    <foaf:name>Toby Inkster</foaf:name>
-    <foaf:page rdf:resource="http://search.cpan.org/~tobyink/"/>
-  </foaf:Person>
+<rdf:RDF xmlns:dbug="http://ontologi.es/doap-bugs#" xmlns:dc="http://purl.org/dc/terms/" xmlns:dcs="http://ontologi.es/doap-changeset#" xmlns:doap="http://usefulinc.com/ns/doap#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+<rdf:Description rdf:nodeID="r87DC7038349611E0B95FF0F03CCCDCA4r0">
+	<dcs:item rdf:nodeID="r87DC7038349611E0B95FF0F03CCCDCA4r1"/>
+	<dcs:item rdf:nodeID="r87DC7038349611E0B95FF0F03CCCDCA4r2"/>
+	<dcs:versus rdf:resource="http://purl.org/NET/cpan-uri/dist/RDF-ACL/v_0-01"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="r87DC7038349611E0B95FF0F03CCCDCA4r1">
+	<rdf:type rdf:resource="http://ontologi.es/doap-changeset#Update"/>
+	<rdfs:label xml:lang="en">Support recent addition to ACL vocabulary - acl:Append.</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:nodeID="r87DC7038349611E0B95FF0F03CCCDCA4r2">
+	<rdfs:label xml:lang="en">use Scalar::Util.</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:nodeID="r87DC7038349611E0B95FF0F03CCCDCA4r3">
+	<dcs:item rdf:nodeID="r87DC7038349611E0B95FF0F03CCCDCA4r4"/>
+	<dcs:item rdf:nodeID="r87DC7038349611E0B95FF0F03CCCDCA4r5"/>
+	<dcs:versus rdf:resource="http://purl.org/NET/cpan-uri/dist/RDF-ACL/v_0-100"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="r87DC7038349611E0B95FF0F03CCCDCA4r4">
+	<rdf:type rdf:resource="http://ontologi.es/doap-changeset#Documentation"/>
+	<rdf:type rdf:resource="http://ontologi.es/doap-changeset#Update"/>
+	<rdfs:label xml:lang="en">Copyright 2011.</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:nodeID="r87DC7038349611E0B95FF0F03CCCDCA4r5">
+	<rdfs:label xml:lang="en">Minor cleanups.</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:nodeID="r87DC7038349611E0B95FF0F03CCCDCA4r6">
+	<doap:browse rdf:resource="http://goddamn.co.uk/viewvc/perlmods/RDF-ACL/"/>
+	<rdf:type rdf:resource="http://usefulinc.com/ns/doap#SVNRepository"/>
+</rdf:Description>
+<rdf:Description rdf:about="file:///home/tai/src/perlmods/RDF-ACL/Changes.ttl">
+	<dc:creator rdf:resource="http://tobyinkster.co.uk/#i"/>
+	<dc:description xml:lang="en">Revision history for Perl extension RDF::ACL.</dc:description>
+	<dc:subject rdf:resource="http://purl.org/NET/cpan-uri/dist/RDF-ACL/project"/>
+	<dc:title>Changes</dc:title>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.org/NET/cpan-uri/dist/RDF-ACL/project">
+	<doap:bug-database rdf:resource="http://rt.cpan.org/Dist/Display.html?Queue=RDF-ACL"/>
+	<doap:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-20</doap:created>
+	<doap:developer rdf:resource="http://tobyinkster.co.uk/#i"/>
+	<doap:documenter rdf:resource="http://tobyinkster.co.uk/#i"/>
+	<doap:download-page rdf:resource="http://search.cpan.org/dist/RDF-ACL/"/>
+	<doap:homepage rdf:resource="http://search.cpan.org/dist/RDF-ACL/"/>
+	<doap:license rdf:resource="http://dev.perl.org/licenses/"/>
+	<doap:maintainer rdf:resource="http://tobyinkster.co.uk/#i"/>
+	<doap:name>RDF-ACL</doap:name>
+	<doap:programming-language>Perl</doap:programming-language>
+	<doap:release rdf:resource="http://purl.org/NET/cpan-uri/dist/RDF-ACL/v_0-01"/>
+	<doap:release rdf:resource="http://purl.org/NET/cpan-uri/dist/RDF-ACL/v_0-100"/>
+	<doap:release rdf:resource="http://purl.org/NET/cpan-uri/dist/RDF-ACL/v_0-101"/>
+	<doap:repository rdf:nodeID="r87DC7038349611E0B95FF0F03CCCDCA4r6"/>
+	<doap:shortdesc xml:lang="en">access control lists for the semantic web</doap:shortdesc>
+	<doap:tester rdf:resource="http://tobyinkster.co.uk/#i"/>
+	<rdf:type rdf:resource="http://usefulinc.com/ns/doap#Project"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.org/NET/cpan-uri/dist/RDF-ACL/v_0-01">
+	<dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-20</dc:issued>
+	<doap:file-release rdf:resource="http://backpan.cpan.org/authors/id/T/TO/TOBYINK/RDF-ACL-0.01.tar.gz"/>
+	<doap:revision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.01</doap:revision>
+	<rdf:type rdf:resource="http://usefulinc.com/ns/doap#Version"/>
+	<rdfs:comment xml:lang="en">Original version</rdfs:comment>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.org/NET/cpan-uri/dist/RDF-ACL/v_0-100">
+	<dcs:changeset rdf:nodeID="r87DC7038349611E0B95FF0F03CCCDCA4r0"/>
+	<dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-06-20</dc:issued>
+	<doap:file-release rdf:resource="http://backpan.cpan.org/authors/id/T/TO/TOBYINK/RDF-ACL-0.100.tar.gz"/>
+	<doap:revision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.100</doap:revision>
+	<rdf:type rdf:resource="http://usefulinc.com/ns/doap#Version"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.org/NET/cpan-uri/dist/RDF-ACL/v_0-101">
+	<dcs:changeset rdf:nodeID="r87DC7038349611E0B95FF0F03CCCDCA4r3"/>
+	<dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-02-09</dc:issued>
+	<doap:file-release rdf:resource="http://backpan.cpan.org/authors/id/T/TO/TOBYINK/RDF-ACL-0.101.tar.gz"/>
+	<doap:revision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.101</doap:revision>
+	<rdf:type rdf:resource="http://usefulinc.com/ns/doap#Version"/>
+	<rdfs:label xml:lang="en">We're not dead yet!</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:about="http://tobyinkster.co.uk/#i">
+	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+	<foaf:homepage rdf:resource="http://tobyinkster.co.uk/"/>
+	<foaf:name>Toby Inkster</foaf:name>
+	<foaf:page rdf:resource="http://search.cpan.org/~tobyink/"/>
+</rdf:Description>
 </rdf:RDF>
