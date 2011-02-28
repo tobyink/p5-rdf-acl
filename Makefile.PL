@@ -16,7 +16,6 @@ license             'perl';
 
 requires            'Data::UUID'          => 0;
 requires            'Error'               => 0;
-test_requires       'Module::Signature'   => '0.66';
 requires            'RDF::TrineShortcuts' => '0.03';
 test_requires       'Test::More'          => '0.61';
 requires            'XML::LibXML'         => '1.60';
