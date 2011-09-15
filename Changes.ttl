@@ -61,10 +61,10 @@ my:project
 	:name           "RDF-ACL" ;
 	:shortdesc      "access control lists for the semantic web"@en ;
 	:programming-language  "Perl" ;
-	:homepage       <http://search.cpan.org/dist/RDF-ACL/> ;
-	:download-page  <http://search.cpan.org/dist/RDF-ACL/> ;
+	:homepage       <https://metacpan.org/release/RDF-ACL> ;
+	:download-page  <https://metacpan.org/release/RDF-ACL> ;
 	:bug-database   <http://rt.cpan.org/Dist/Display.html?Queue=RDF-ACL> ;
-	:repository     [ a :SVNRepository ; :browse <http://goddamn.co.uk/viewvc/perlmods/RDF-ACL/> ] ;
+	:repository     [ a :SVNRepository ; :browse <http://goddamn.co.uk/svn-web/perlmods/browse/RDF-ACL/> ] ;
 	:maintainer     toby:i ;
 	:developer      toby:i ;
 	:documenter     toby:i ;
@@ -80,6 +80,6 @@ toby:i
 	a               foaf:Person ;
 	foaf:name       "Toby Inkster" ;
 	foaf:homepage   <http://tobyinkster.co.uk/> ;
-	foaf:page       <http://search.cpan.org/~tobyink/> .
+	foaf:page       <https://metacpan.org/author/TOBYINK> .
 
 #############################################################
