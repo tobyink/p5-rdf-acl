@@ -1,5 +1,5 @@
-use Test::More tests => 3;
-BEGIN { use_ok('RDF::ACL') };
+use Test::More tests => 2;
+use RDF::ACL;
 
 my $acl = RDF::ACL->new;
 

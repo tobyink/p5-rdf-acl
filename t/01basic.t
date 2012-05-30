@@ -1,7 +1,7 @@
 use Test::More tests => 7;
 BEGIN { use_ok('RDF::ACL') };
 
-ok(my $acl = RDF::ACL->new, "creating ACL object");
+my $acl = new_ok 'RDF::ACL';
 
 ok($acl->can('check'), "ACL object can check");
 ok($acl->can('why'), "ACL object can why");
