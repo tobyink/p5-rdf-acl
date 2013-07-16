@@ -17,7 +17,7 @@ use constant NS_ACL    => 'http://www.w3.org/ns/auth/acl#';
 use constant NS_RDF    => 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.102';
+our $VERSION   = '0.103';
 
 sub rdf_query
 {
@@ -701,7 +701,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT AND LICENCE
 
-This software is copyright (c) 2010-2012 by Toby Inkster.
+This software is copyright (c) 2010-2013 by Toby Inkster.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

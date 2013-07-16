@@ -55,3 +55,15 @@ my:v_0-102
 		dcs:item [ rdfs:label "Drop RDF::TrineShortcuts dependency; use RDF::TrineX::Functions."@en ] ;
 	] .
 
+my:project :release my:v_0-103 .
+my:v_0-103
+	a               :Version ;
+	dc:issued       "2013-07-16"^^xsd:date ;
+	:revision       "0.103"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/RDF-ACL-0.103.tar.gz> ;
+	dcs:changeset [
+		dcs:versus my:v_0-102 ;
+		dcs:item [ rdfs:label "Copyright 2013."@en ; a dcs:Update, dcs:Documentation ] ;
+		dcs:item [ rdfs:label "Stop bundling early paleolithic version of Scalar::Util."@en ; a dcs:Packaging ] ;
+	] .
+
