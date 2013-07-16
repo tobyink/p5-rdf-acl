@@ -64,6 +64,6 @@ my:v_0-103
 	dcs:changeset [
 		dcs:versus my:v_0-102 ;
 		dcs:item [ rdfs:label "Copyright 2013."@en ; a dcs:Update, dcs:Documentation ] ;
-		dcs:item [ rdfs:label "Stop bundling early paleolithic version of Scalar::Util."@en ; a dcs:Packaging ] ;
+		dcs:item [ rdfs:label "Stop bundling early paleolithic version of Scalar::Util."@en ; a dcs:Packaging; dcs:fixes <http://purl.org/NET/cpan-uri/rt/ticket/86723> ] ;
 	] .
 
