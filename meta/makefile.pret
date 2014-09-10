@@ -1,0 +1,12 @@
+@prefix deps:  <http://ontologi.es/doap-deps#> .
+
+<http://purl.org/NET/cpan-uri/dist/RDF-ACL/project>
+	deps:runtime-requirement         [ deps:on "Data::UUID"^^deps:CpanId ];
+	deps:runtime-requirement         [ deps:on "Error"^^deps:CpanId ];
+	deps:runtime-requirement         [ deps:on "RDF::TrineX::Functions"^^deps:CpanId ];
+	deps:runtime-requirement         [ deps:on "RDF::Query"^^deps:CpanId ];
+	deps:runtime-requirement         [ deps:on "RDF::Query::Client"^^deps:CpanId ];
+	deps:runtime-requirement         [ deps:on "Scalar::Util"^^deps:CpanId ];
+	deps:runtime-requirement         [ deps:on "URI"^^deps:CpanId ];
+	deps:test-requirement            [ deps:on "Test::More 0.61"^^deps:CpanId ].
+
