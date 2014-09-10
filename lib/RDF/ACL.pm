@@ -17,7 +17,7 @@ use constant NS_ACL    => 'http://www.w3.org/ns/auth/acl#';
 use constant NS_RDF    => 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.103';
+our $VERSION   = '0.104';
 
 sub rdf_query
 {
